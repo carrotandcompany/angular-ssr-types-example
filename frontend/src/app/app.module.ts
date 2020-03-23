@@ -7,11 +7,7 @@ import { PublicPageComponent } from "./public-page/public-page.component";
 import { PrerenderPageComponent } from "./prerender-page/prerender-page.component";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PublicPageComponent,
-    PrerenderPageComponent
-  ],
+  declarations: [AppComponent, PublicPageComponent, PrerenderPageComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),
     AppRoutingModule

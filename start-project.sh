@@ -11,7 +11,6 @@ docker build -f conf/Dockerfile --target ssr-server -t $DOCKER_SSR_SERVER .
 
 docker container rm -f $DOCKER_FRONTEND_BROWSER || true
 docker container rm -f $DOCKER_SSR_SERVER || true
-docker network rm $DOCKER_NETWORK || true
 docker network create $DOCKER_NETWORK
 
 docker container run --name $DOCKER_SSR_SERVER --expose 4000 -d --network=$DOCKER_NETWORK $DOCKER_SSR_SERVER
