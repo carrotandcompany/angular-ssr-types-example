@@ -10,8 +10,6 @@ RUN npm run build:ssr
 
 
 FROM nginx:1.16.1 AS frontend-browser
-# take default value from global ARG
-ARG ANGULAR_APP_NAME
 COPY --from=build /app/dist/frontend/browser/ /usr/share/nginx/html
 COPY /conf/angular-server.nginx.conf /etc/nginx/conf.d/default.conf
 
