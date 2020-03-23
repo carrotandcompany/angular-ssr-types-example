@@ -9,13 +9,23 @@ COPY frontend/ /app/
 RUN npm run build:ssr
 
 
+FROM node:13.10.1 AS static-build
+RUN mkdir /app
+COPY frontend/package.json frontend/package-lock.json /app/
+WORKDIR /app
+RUN npm ci
+COPY frontend/ /app/
+RUN npm install -g @angular/cli
+RUN ng run frontend:prerender --routesFile routes.txt
+
+
 FROM nginx:1.16.1 AS frontend-browser
-COPY --from=build /app/dist/frontend/browser/ /usr/share/nginx/html
+COPY --from=static-build /app/dist/frontend/browser/ /usr/share/nginx/html
 COPY /conf/angular-server.nginx.conf /etc/nginx/conf.d/default.conf
 
 
 FROM node:13.10.1-alpine AS ssr-server
-COPY --from=build /app/dist /app/dist/
+COPY --from=static-build /app/dist /app/dist/
 COPY /frontend/package.json /app/package.json
 WORKDIR /app
 EXPOSE 4000
