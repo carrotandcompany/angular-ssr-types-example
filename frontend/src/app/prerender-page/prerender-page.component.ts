@@ -6,7 +6,7 @@ import { isPlatformBrowser } from "@angular/common";
   template:
     "<p>Rendered by {{ renderer }}</p><br><p>Current time: {{ currentTime }}</p>"
 })
-export class PublicPageComponent implements OnInit {
+export class PrerenderPageComponent implements OnInit {
   renderer: string;
   currentTime: string;
 
@@ -15,5 +15,5 @@ export class PublicPageComponent implements OnInit {
     this.currentTime = new Date().toLocaleString();
   }
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 }
