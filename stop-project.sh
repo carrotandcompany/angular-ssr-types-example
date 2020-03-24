@@ -2,7 +2,10 @@
 set -e
 DOCKER_FRONTEND_BROWSER="frontend-browser"
 DOCKER_SSR_SERVER="ssr-server"
+DOCKER_STATIC_SSR_SERVER="static-ssr-server"
 DOCKER_NETWORK="angular-ssr-network"
 
+
 docker stop $DOCKER_FRONTEND_BROWSER $DOCKER_SSR_SERVER
+docker stop $DOCKER_STATIC_SSR_SERVER
 docker network rm $DOCKER_NETWORK
