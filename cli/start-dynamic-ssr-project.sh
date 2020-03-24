@@ -5,9 +5,9 @@ DOCKER_SSR_SERVER="ssr-server"
 DOCKER_NETWORK="angular-ssr-network"
 
 # build browser nginx
-docker build -f ../conf/dynamic/Dockerfile --target frontend-browser -t $DOCKER_FRONTEND_BROWSER .
+docker build -f conf/dynamic/Dockerfile --target frontend-browser -t $DOCKER_FRONTEND_BROWSER .
 # build server for ssr:
-docker build -f ../conf/dynamic/Dockerfile --target ssr-server -t $DOCKER_SSR_SERVER .
+docker build -f conf/dynamic/Dockerfile --target ssr-server -t $DOCKER_SSR_SERVER .
 
 docker container rm -f $DOCKER_FRONTEND_BROWSER || true
 docker container rm -f $DOCKER_SSR_SERVER || true
