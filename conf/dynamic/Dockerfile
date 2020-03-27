@@ -12,6 +12,7 @@ RUN npm run build:ssr
 FROM nginx:1.16.1 AS frontend-browser
 COPY --from=build /app/dist/frontend/browser/ /usr/share/nginx/html
 COPY /conf/dynamic/angular-server.nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 8090
 
 
 FROM node:13.10.1-alpine AS ssr-server

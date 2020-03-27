@@ -14,4 +14,4 @@ docker container rm -f $DOCKER_SSR_SERVER || true
 docker network create $DOCKER_NETWORK
 
 docker container run --name $DOCKER_SSR_SERVER --expose 4000 -d --network=$DOCKER_NETWORK $DOCKER_SSR_SERVER
-docker container run --name $DOCKER_FRONTEND_BROWSER -p 80:80 -d --network=$DOCKER_NETWORK $DOCKER_FRONTEND_BROWSER
+docker container run --name $DOCKER_FRONTEND_BROWSER -p 8090:8090 -d --network=$DOCKER_NETWORK $DOCKER_FRONTEND_BROWSER
