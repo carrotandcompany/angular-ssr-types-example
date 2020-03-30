@@ -3,8 +3,8 @@ import { isPlatformBrowser } from "@angular/common";
 
 @Component({
   selector: "app-public-page",
-  template:
-    "<p>Rendered by {{ renderer }}</p><br><p>Current time: {{ currentTime }}</p>"
+  templateUrl: "./public-page.component.html",
+  styleUrls: ["./public-page.component.css"]
 })
 export class PublicPageComponent implements OnInit {
   renderer: string;
