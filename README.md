@@ -1,4 +1,6 @@
-# Angular-ssr demo
+# Angular-ssr demo (Angular v9)
+
+Example Project for the Blogpost https://www.cnc.io/en/blog/Angular-9-SSR-Types-Demo.html
 
 To start the project install [Docker](https://www.docker.com/) and execute:
 
